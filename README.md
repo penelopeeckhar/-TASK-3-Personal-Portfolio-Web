@@ -9,14 +9,17 @@ import re
 
 app = Flask(__name__)
 
-# Configuration du journal de sécurité
+#Configuration du journal de sécurité
+
 logging.basicConfig(filename="security.log", level=logging.WARNING, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Liste des commandes autorisées
+#Liste des commandes autorisées
+
 ALLOWED_COMMANDS = {"ls", "whoami", "uptime"}
 
-# Expression régulière pour valider les entrées
+#Expression régulière pour valider les entrées
+
 COMMAND_PATTERN = re.compile(r"^[a-z]+$")
 
 @app.route('/run', methods=['GET'])
